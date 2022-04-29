@@ -1,0 +1,37 @@
+-- http://projects.haskell.org/xmobar/
+-- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
+-- you can find weather location codes here: http://weather.noaa.gov/index.html
+
+Config { font    = "xft:Mononoki Nerd Font:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:FontAwesome:pixelsize=13"
+                           ]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , position = Static { xpos = 1920 , ypos = 1056, width = 1920, height = 24 }
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , iconRoot = "/home/linus/.xmonad/xpm/"  -- default: "."
+       , commands = [
+                    -- Time and date
+                      Run Date "%b %d %Y - (%H:%M:%S) " "date" 10
+                      -- Ram used number and percent
+                    , Run Memory ["-t", "mem: <used>M (<usedratio>%)"] 20
+                      -- Disk space free
+                    , Run DiskU [("/", "sdd: <free> free")] [] 60
+                      -- Runs custom script to check for pacman updates.
+                    , Run Com "/home/linus/colors/updates" [] "updates" 6000
+                      -- temp
+                    , Run Weather "ENVA" ["-t", "Værnes: <tempC>C"] 6000
+                      -- The workspaces are 'clickable' in my configs.
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <action=`xdotool key control+alt+g`></action>%UnsafeStdinReader% }{ <fc=#71d0e8>%ENVA%</fc> <fc=#ffffff>|</fc> <fc=#e59ed7>%memory%</fc> <fc=#ffffff>|</fc> <fc=#71d0e8>%disku%</fc> <fc=#ffffff>|</fc> <fc=#e59ed7>%updates%</fc> <fc=#ffffff>|</fc> <fc=#71d0e8>%date% </fc>"
+       }
+
+
+

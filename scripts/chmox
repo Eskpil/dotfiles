@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+   echo "You need to provide filename"
+else 
+   chmod +x $1 
+fi
