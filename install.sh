@@ -2,6 +2,10 @@
 
 set -ex
 
+mkdir "$HOME/.config"
+mkdir "$HOME/.config/sway"
+mkdir "$HOME/.config/alacritty"
+
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/.bash_aliases" "$HOME/.bash_aliases"
 ln -sf "$PWD/scripts" "$HOME/scripts"

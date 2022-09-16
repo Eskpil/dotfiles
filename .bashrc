@@ -6,24 +6,31 @@ esac
 export TERM=xterm-256color
 export EDITOR=vim
 
-# ------------------------------ c compiler --------------------------- 
+# ------------------------------ c compiler ---------------------------
 
 export CC=gcc
 export CPPC=g++
 
-# ------------------------------ linker -------------------------------
+# ------------------------------ linker ------------------------------
 
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 
-# ------------------------------ pkg-config paths ---------------------
+# ------------------------------ pkg-config paths --------------------
 
 export PKG_CONFIG_PATH=~/.local/pgks
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
+# ------------------------------ go ----------------------------------
+
+export GOPATH=~/go
+
 # ------------------------------ paths -------------------------------
+
 
 export PATH=~/scripts/:$PATH
 export PATH=~/.local/bin/:$PATH
+export PATH=~/go/bin/:$PATH
+export PATH=~/.cargo/bin/:$PATH
 
 # ------------------------------ history -----------------------------
 
@@ -85,5 +92,3 @@ unalias -a
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
-
-. "$HOME/.cargo/env"

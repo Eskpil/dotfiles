@@ -30,6 +30,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'rwxrob/vim-pandoc-syntax-simple'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end() 
 
@@ -37,6 +38,7 @@ let g:pandoc#formatting#mode = 'h' " A'
 let g:pandoc#formatting#textwidth = 72
 
 autocmd BufRead,BufNewFile *.porth set filetype=porth
+autocmd BufRead,BufNewFile *.cjs set filetype=javascript
 
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
